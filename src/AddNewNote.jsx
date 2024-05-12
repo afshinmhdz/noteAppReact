@@ -5,12 +5,19 @@ const [description,setDescription]=useState("");
 
 const handleSubmit=(e)=>{
     e.preventDefault();
+    console.log(e);
+    const newNote={
+        title,
+        description,
+        id:Date.now(),
+        completed:false,
+        createdAt:new Date().toISOString(),
+    }
+    setTitle("");
+    setDescription("");
+    console.log(newNote);
 }    
 
-const handleChange=(e)=>{
-    console.log(e.target.value);
-    setTitle(e.target.value);
-}
   return (
     <div className="add-new-note">
       <h2>Add New Note</h2>
