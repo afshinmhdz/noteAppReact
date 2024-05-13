@@ -2,6 +2,7 @@ import { useState } from "react";
 function AddNewNote() {
 const [title,setTitle]=useState("");
 const [description,setDescription]=useState("");
+const [notes,setNotes]=useState([]);
 
 const handleSubmit=(e)=>{
     e.preventDefault();
@@ -15,6 +16,7 @@ const handleSubmit=(e)=>{
     }
     setTitle("");
     setDescription("");
+    setNotes((prevNotes)=>[...prevNotes,newNote])
     console.log(newNote);
 }    
 
