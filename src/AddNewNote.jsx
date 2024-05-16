@@ -1,11 +1,14 @@
 import { useState } from "react";
-function AddNewNote() {
+function AddNewNote({onAddNote}) {
 const [title,setTitle]=useState("");
 const [description,setDescription]=useState("");
 
 
 const handleSubmit=(e)=>{
-    e.preventDefault();
+  e.preventDefault();
+
+  if(!title || !description)return null; //if user don't enter title and description return null
+
     console.log(e);
     const newNote={
         title,
@@ -16,7 +19,7 @@ const handleSubmit=(e)=>{
     }
     setTitle("");
     setDescription("");
-    setNotes((prevNotes)=>[...prevNotes,newNote])
+    onAddNote(newNote)
     console.log(newNote);
 }    
 
